@@ -1,7 +1,9 @@
 package it.localhost.app.mobile.learningrecyclercardview.view.activity;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,9 +21,10 @@ import java.util.Map;
 
 import it.localhost.app.mobile.learningrecyclercardview.GsonRequest;
 import it.localhost.app.mobile.learningrecyclercardview.R;
-import it.localhost.app.mobile.learningrecyclercardview.view.adapter.UsersAdapter;
 import it.localhost.app.mobile.learningrecyclercardview.VolleySingleton;
 import it.localhost.app.mobile.learningrecyclercardview.model.User;
+import it.localhost.app.mobile.learningrecyclercardview.view.adapter.DividerItemDecoration;
+import it.localhost.app.mobile.learningrecyclercardview.view.adapter.UsersAdapter;
 
 public class RecyclerActivity extends AppCompatActivity {
 
@@ -53,7 +56,13 @@ public class RecyclerActivity extends AppCompatActivity {
         // create and attach the adapter to the recyclerview
         UsersAdapter adapter = new UsersAdapter(users, myCtx);
         rvUsers.setAdapter(adapter);
+        // use a built-in layout managers
         rvUsers.setLayoutManager(new LinearLayoutManager(myCtx));
+
+        // DECORATIONS
+        Drawable drawable = ContextCompat.getDrawable(myCtx, R.drawable.divider_sample);
+        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(drawable, DividerItemDecoration.VERTICAL_LIST); //new DividerItemDecoration(myCtx, DividerItemDecoration.VERTICAL_LIST);
+        rvUsers.addItemDecoration(itemDecoration);
     }
 
     private Response.Listener<User[]> onSuccLstUsers() {

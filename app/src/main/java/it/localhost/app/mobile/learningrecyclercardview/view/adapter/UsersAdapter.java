@@ -48,6 +48,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
         return context;
     }
 
+    /**
+     * Inflate the view and its view holder
+     *
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @Override
     public UsersAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
@@ -61,6 +68,12 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
         return viewHolder;
     }
 
+    /**
+     * Bind data to the view
+     *
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(UsersAdapter.ViewHolder holder, int position) {
 
