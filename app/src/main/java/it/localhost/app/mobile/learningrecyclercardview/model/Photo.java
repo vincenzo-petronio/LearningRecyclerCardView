@@ -3,6 +3,9 @@ package it.localhost.app.mobile.learningrecyclercardview.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Model for http://jsonplaceholder.typicode.com/photos
+ */
 public class Photo {
     @SerializedName("albumId")
     @Expose

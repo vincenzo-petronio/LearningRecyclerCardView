@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -40,7 +41,7 @@ public class RecyclerActivity extends AppCompatActivity {
 
         // VIEW
         setContentView(R.layout.activity_recycler);
-        rvUsers = (RecyclerView) findViewById(R.id.rvUsers);
+        rvUsers = (RecyclerView) findViewById(R.id.rvItems);
 
         // REST API
         RequestQueue req = VolleySingleton.getInstance(this).getRequestQueue();
@@ -61,8 +62,12 @@ public class RecyclerActivity extends AppCompatActivity {
 
         // DECORATIONS
         Drawable drawable = ContextCompat.getDrawable(myCtx, R.drawable.divider_sample);
-        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(drawable, DividerItemDecoration.VERTICAL_LIST); //new DividerItemDecoration(myCtx, DividerItemDecoration.VERTICAL_LIST);
+        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(drawable, DividerItemDecoration.VERTICAL_LIST);
         rvUsers.addItemDecoration(itemDecoration);
+
+        // ANIMATOR
+//        RecyclerView.ItemAnimator itemAnimator = new DefaultItemAnimator();
+//        rvUsers.setItemAnimator(itemAnimator);
     }
 
     private Response.Listener<User[]> onSuccLstUsers() {

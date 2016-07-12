@@ -15,11 +15,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnRecycler = (Button) findViewById(R.id.btnRecycler);
-        btnRecycler.setOnClickListener(new View.OnClickListener() {
+        Button btnRecyclerLinear = (Button) findViewById(R.id.btnRecyclerLinear);
+        btnRecyclerLinear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, RecyclerActivity.class));
+            }
+        });
+        Button btnRecyclerGrid = (Button) findViewById(R.id.btnRecyclerGrid);
+        btnRecyclerGrid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, RecyclerPhotoActivity.class));
             }
         });
         Button btnRecyclerCard = (Button) findViewById(R.id.btnRecyclerCard);

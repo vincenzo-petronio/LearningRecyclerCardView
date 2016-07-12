@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.RecyclerActivity" />
-        <activity android:name=".view.activity.RecyclerCardActivity"></activity>
+        <activity android:name=".view.activity.RecyclerCardActivity" />
+        <activity android:name=".view.activity.RecyclerPhotoActivity" />
     </application>
 
 </manifest>

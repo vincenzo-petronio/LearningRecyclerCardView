@@ -16,10 +16,16 @@
         android:text="Hello World!" />
 
     <Button
-        android:id="@+id/btnRecycler"
+        android:id="@+id/btnRecyclerLinear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RecyclerView with custom ViewHolder" />
+        android:text="RecyclerView with custom ViewHolder (LinearLayout)" />
+
+    <Button
+        android:id="@+id/btnRecyclerGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RecyclerView with custom ViewHolder (GridLayout)" />
 
     <Button
         android:id="@+id/btnRecyclerCard"
