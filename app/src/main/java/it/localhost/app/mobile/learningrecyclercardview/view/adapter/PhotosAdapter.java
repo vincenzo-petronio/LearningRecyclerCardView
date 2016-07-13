@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -70,18 +71,18 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
         }
 
         holder.tvTitle.setText(photo.getTitle());
-        Log.v("PhotosAdapter: ", photo.getThumbnailUrl().toString());
 
+        // FIXME Picasso bug! https://github.com/square/picasso/issues/463
+//        Picasso.with(context)
+//                //.load(Uri.parse(photo.getThumbnailUrl()))
+//                .load(photo.getThumbnailUrl())
+//                .error(R.drawable.information)
+//                //.tag(context)
+//                //.placeholder(R.drawable.information)
+//                //.resize(120, 60)
+//                .into(holder.ivPhoto);
 
-        Picasso.with(context)
-                //.load(Uri.parse(photo.getThumbnailUrl()))
-                // FIXME Picasso bug! https://github.com/square/picasso/issues/463
-                .load(photo.getThumbnailUrl())
-                .error(R.drawable.information)
-                //.tag(context)
-                //.placeholder(R.drawable.information)
-                //.resize(120, 60)
-                .into(holder.ivPhoto);
+        Glide.with(context).load(photo.getThumbnailUrl()).into(holder.ivPhoto);
     }
 
     @Override
