@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -31,7 +30,7 @@ public class RecyclerActivity extends AppCompatActivity {
 
     private List<User> users;
     private Context myCtx;
-    private RecyclerView rvUsers;
+    private RecyclerView rvItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +40,7 @@ public class RecyclerActivity extends AppCompatActivity {
 
         // VIEW
         setContentView(R.layout.activity_recycler);
-        rvUsers = (RecyclerView) findViewById(R.id.rvItems);
+        rvItems = (RecyclerView) findViewById(R.id.rvItems);
 
         // REST API
         RequestQueue req = VolleySingleton.getInstance(this).getRequestQueue();
@@ -56,14 +55,14 @@ public class RecyclerActivity extends AppCompatActivity {
     private void setView() {
         // create and attach the adapter to the recyclerview
         UsersAdapter adapter = new UsersAdapter(users, myCtx);
-        rvUsers.setAdapter(adapter);
+        rvItems.setAdapter(adapter);
         // use a built-in layout managers
-        rvUsers.setLayoutManager(new LinearLayoutManager(myCtx));
+        rvItems.setLayoutManager(new LinearLayoutManager(myCtx));
 
         // DECORATIONS
         Drawable drawable = ContextCompat.getDrawable(myCtx, R.drawable.divider_sample);
         RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(drawable, DividerItemDecoration.VERTICAL_LIST);
-        rvUsers.addItemDecoration(itemDecoration);
+        rvItems.addItemDecoration(itemDecoration);
 
         // ANIMATOR
 //        RecyclerView.ItemAnimator itemAnimator = new DefaultItemAnimator();

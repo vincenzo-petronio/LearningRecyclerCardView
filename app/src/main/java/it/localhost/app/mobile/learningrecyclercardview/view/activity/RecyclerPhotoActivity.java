@@ -27,7 +27,7 @@ public class RecyclerPhotoActivity extends AppCompatActivity {
 
     private List<Photo> photos;
     private Context myCtx;
-    private RecyclerView rvPhotos;
+    private RecyclerView rvItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class RecyclerPhotoActivity extends AppCompatActivity {
 
         // VIEW
         setContentView(R.layout.activity_recycler);
-        rvPhotos = (RecyclerView) findViewById(R.id.rvItems);
+        rvItems = (RecyclerView) findViewById(R.id.rvItems);
 
         // REST API
         RequestQueue req = VolleySingleton.getInstance(this).getRequestQueue();
@@ -51,9 +51,9 @@ public class RecyclerPhotoActivity extends AppCompatActivity {
 
     private void setView() {
         PhotosAdapter adapter = new PhotosAdapter(photos, myCtx);
-        rvPhotos.setAdapter(adapter);
+        rvItems.setAdapter(adapter);
         // use a built-in layout managers
-        rvPhotos.setLayoutManager(new GridLayoutManager(myCtx, 2));
+        rvItems.setLayoutManager(new GridLayoutManager(myCtx, 2));
     }
 
     private Response.Listener<Photo[]> onSuccLstPhotos() {
