@@ -20,9 +20,43 @@ public class TodosAdapter extends RecyclerView.Adapter<TodosAdapter.ViewHolder> 
     private List<Todo> todos;
     private Context context;
 
+    /**
+     * Attaching Click Handlers using Listeners
+     */
+    // https://guides.codepath.com/android/using-the-recyclerview#attaching-click-handlers-using-listeners
+    private static OnItemClickListener sOnItemClickListener;
+
+    /**
+     * Callback OnItemClickListener
+     */
+    public interface OnItemClickListener {
+        void onItemClick(View itemView, int position);
+    }
+
+    /**
+     * @param listener OnItemClickListener
+     */
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.sOnItemClickListener = listener;
+    }
+
+    /**
+     *
+     */
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public ViewHolder(View itemView) {
+        public ViewHolder(final View itemView) {
             super(itemView);
+
+            // listener unico per entrambi i ViewHolder
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (sOnItemClickListener != null) {
+                        // chiama la VIEW
+                        sOnItemClickListener.onItemClick(itemView, getLayoutPosition());
+                    }
+                }
+            });
         }
     }
 

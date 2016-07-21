@@ -50,10 +50,6 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
 
     /**
      * Inflate the view and its view holder
-     *
-     * @param parent
-     * @param viewType
-     * @return
      */
     @Override
     public UsersAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -70,9 +66,6 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
 
     /**
      * Bind data to the view
-     *
-     * @param holder
-     * @param position
      */
     @Override
     public void onBindViewHolder(UsersAdapter.ViewHolder holder, int position) {

@@ -1,12 +1,12 @@
 package it.localhost.app.mobile.learningrecyclercardview;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 
 public class VolleySingleton {
     private static final String TAG = VolleySingleton.class.getSimpleName();

@@ -1,16 +1,15 @@
 package it.localhost.app.mobile.learningrecyclercardview.view.adapter;
 
+import com.bumptech.glide.Glide;
+
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
-import com.squareup.picasso.Picasso;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -19,10 +18,10 @@ import it.localhost.app.mobile.learningrecyclercardview.model.Photo;
 
 public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder> {
 
-    private List<Photo> photos;
-    private Context context;
+    private static List<Photo> photos;
+    private static Context context;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView tvTitle;
         public ImageView ivPhoto;
@@ -32,6 +31,17 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
 
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
             ivPhoto = (ImageView) itemView.findViewById(R.id.ivPhoto);
+
+            // https://guides.codepath.com/android/using-the-recyclerview#simple-click-handler-within-viewholder
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int position = getLayoutPosition();
+            Photo photo = photos.get(position);
+
+            Toast.makeText(context, Integer.toString(photo.getId()), Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -1,16 +1,16 @@
 package it.localhost.app.mobile.learningrecyclercardview.view.activity;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -43,6 +43,7 @@ public class RecyclerPhotoActivity extends AppCompatActivity {
         RequestQueue req = VolleySingleton.getInstance(this).getRequestQueue();
         Map<String, String> params = new HashMap<>();
         Map<String, String> headers = new HashMap<>();
+        //headers.put("Content-Type", "application/json; charset=utf-8");
         GsonRequest<Photo[]> gsonReq = new GsonRequest<>(Request.Method.GET,
                 "http://jsonplaceholder.typicode.com/photos",
                 Photo[].class, params, headers, onSuccLstPhotos(), onErrLstPhotos());
